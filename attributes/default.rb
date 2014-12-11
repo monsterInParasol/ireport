@@ -20,4 +20,12 @@
 
 default['ireport']['version'] = '5.6.0'
 
+version = default['ireport']['version']
+
+def is_classic(v)
+  v.split('.').join('').to_i <= 300
+end
+
+default['ireport']['url'] = "http://sourceforge.net/projects/ireport/files/iReport#{if is_classic version then ' (classic)' else '' end}/iReport-#{version}/iReport-#{version}.zip/download"
+
 default['ireport']['default_user'] = 'ubuntu'
