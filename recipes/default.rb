@@ -19,13 +19,18 @@
 
 ireport_dir = "iReport-#{node['ireport']['version']}"
 ireport_zip = "#{ireport_dir}.zip"
+chef_cache_dir = Chef::Config[:file_cache_path]
 
-remote_file "/opt/#{ireport_zip}" do
+remote_file "#{chef_cache_dir}/#{ireport_zip}" do
   source node['ireport']['url']
+  checksum node['ireport']['sha256sum']
+  notifies :run , 'execute[exploding ireport]', :immediately
 end
 
-execute "unzip #{ireport_zip}" do
-  cwd '/opt'
+execute "exploding ireport" do
+  cwd chef_cache_dir
+  command "unzip #{ireport_zip} -d /opt"
+  action :nothing
 end
 
 file "create ireport shortcut" do
