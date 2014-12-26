@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: oracle-instantclient
+# Cookbook Name:: ireport
 # Recipe:: default
 #
 # Copyright (C) 2014 Pablo Fonseca
