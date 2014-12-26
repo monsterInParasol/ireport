@@ -1,6 +1,6 @@
 name             'ireport'
-maintainer       'YOUR_NAME'
-maintainer_email 'YOUR_EMAIL'
+maintainer       'Pablo Fonseca'
+maintainer_email 'pabloramon21@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures ireport'
 long_description 'Installs/Configures ireport'
